@@ -1,0 +1,2 @@
+include ':app', ':draggableviewlib'
+rootProject.name = "DraggableView Implementation"
