@@ -15,12 +15,16 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import io.github.hyuwah.draggableviewlib.DraggableView;
 
 public class MasterActivity extends AppCompatActivity {
 
     private boolean isScrolled = false;
+    private boolean isDocked = false;
+    private float x1, x2;
+    static final int MIN_DISTANCE = 150;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -30,10 +34,27 @@ public class MasterActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        RelativeLayout dragContainer = (RelativeLayout) findViewById(R.id.drag_container);
         ImageView ivDrag = (ImageView) findViewById(R.id.iv_drag);
-        DraggableView someDraggable = new DraggableView.Builder<ImageView>(ivDrag)
+        DraggableView someDraggable = new DraggableView.Builder(ivDrag)
                 .setStickyMode(DraggableView.Mode.STICKY_X)
                 .build();
+
+        ivDrag.setOnClickListener(view -> {
+            if (isDocked) {
+                someDraggable.undock();
+                isDocked = false;
+            } else {
+                someDraggable.dockToEdge();
+                isDocked = true;
+            }
+        });
+
+//        ImageView icClose = (ImageView) findViewById(R.id.ic_dock);
+//        icClose.setOnClickListener(view -> {
+//            someDraggable.dockToEdge();
+//            isDocked = true;
+//        });
 
         NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.scroll);
         scrollView.setOnTouchListener((view, motionEvent) -> {

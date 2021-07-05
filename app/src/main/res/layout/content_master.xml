@@ -5,16 +5,35 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <ImageView
-        android:id="@+id/iv_drag"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:elevation="3dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/drag_container"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent">-->
+
+        <ImageView
+            android:id="@+id/iv_drag"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:elevation="3dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@mipmap/ic_launcher" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ic_dock"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:elevation="4dp"-->
+<!--            android:src="@drawable/ic_close"-->
+<!--            android:visibility="gone" />-->
+
+<!--    </RelativeLayout>-->
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
